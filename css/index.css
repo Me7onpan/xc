@@ -1,0 +1,297 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 Tahoma, "Lucida Grande", Verdana, "Microsoft Yahei", STXihei, hei;
+    color: #000;
+    background: #f2f2f2;
+    /* 永远不会出现水平滚动条 */
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.search-index {
+    display: flex;
+    /* 固定定位以屏幕为准，和父级无关。且需要有宽度 */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    -webkit-transform:translateX(-50%) ;
+    transform: translateX(-50%);
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: #f6f6f6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+.user {
+    /* 默认左右布局 不需要align-content: flex-end; */
+    width: 44px;
+    height: 44px;
+    font-size: 12px;
+    text-align: center;
+    color: #2eaae0;
+}
+.user::before {
+    content: "";
+    display: block;
+    width: 23px;
+    height: 23px;
+    /* 二倍精灵图做法：先PS缩放为一半像素大小，量出坐标记入，最后写backgrond-size也是一半 */
+    background: url(../images/sprite.png) -59px -194px no-repeat;
+    background-size: 104px auto;
+    margin: 3px auto -2px;
+}
+.search {
+    position: relative;
+    flex: 1;
+    margin: 6px 9px;
+    padding-left: 24px;
+    height: 26px;
+    /* border-box c3盒子模型 行高要去掉边框的 */
+    line-height: 24px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    color: #999;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+.search::before {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 13px;
+    height: 13px;
+    background: url(../images/sprite.png) -60px -280px no-repeat;
+    background-size: 104px auto;
+}
+.focus {
+    margin-top: 44px;
+}
+.focus img {
+    width: 100%;
+}
+.local-nav {
+    display: flex;
+    height: 64px;
+    background-color: #fff;
+    margin: 4px 4px;
+    border-radius: 8px;
+    box-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+.local-nav li {
+    flex: 1;
+}
+.local-nav li a {
+    /* 在父级上设置属性及添加flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 开头一致的类名集体声明 */
+.local-nav li a [class^="local-nav-icon"] {
+    margin-top: 8px;
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) 0 0 no-repeat;
+    background-size: 32px auto;
+}
+.local-nav li a .local-nav-icon2 {
+    background-position: 0 -32px;
+}
+.local-nav li a .local-nav-icon3 {
+    background-position: 0 -64px;
+}
+.local-nav li a .local-nav-icon4 {
+    background-position: 0 -96px;
+}
+.local-nav li a .local-nav-icon5 {
+    background-position: 0 -128px;
+}
+nav {
+    margin: 10px 4px 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+nav .nav-common {
+    display: flex;
+    height: 88px;
+    background-color: pink;
+}
+nav .nav-common:nth-child(2) {
+    margin: 3px 0;
+}
+nav .nav-common .nav-items {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.nav-items:nth-child(-n+2) {
+    border-right: 1px solid #fff;
+}
+.nav-items a {
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px;
+    color: #fff;
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+.nav-items a:nth-child(1) {
+    border-bottom: 1px solid #fff;
+}
+.nav-items:first-child a {
+    border: 0;
+    /* 背景图片底端对齐bottom 居中对齐center */
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px auto;
+}
+.nav-common:nth-child(1) {
+    background: -webkit-linear-gradient(left, #fd7460, #fda85a) ;
+}
+.nav-common:nth-child(2) {
+    background: -webkit-linear-gradient(left, #4f9bef, #56bdef) ;
+}
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(left, #36bab2, #70c861) ;
+}
+.subnav {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 4px;
+    padding: 4px 0;
+    box-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+.subnav li {
+    flex: 20%;
+}
+.subnav li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.subnav [class^="subnav-icon"] {
+    width: 28px;
+    height: 28px;
+    margin-top: 4px;
+    background: url(../images/subnav-bg.png) 0 0 no-repeat;
+    /* 背景图缩放为原来的一半，与需要的尺寸一致 */
+    background-size: 28px auto;
+}
+.subnav .subnav-icon2 {
+    background-position: 0 -30px;
+}
+.subnav .subnav-icon3 {
+    background-position: 0 -60px;
+}
+.subnav .subnav-icon4 {
+    background-position: 0 -96px;
+}
+.subnav .subnav-icon5 {
+    background-position: 0 -132px;
+}
+.subnav .subnav-icon6 {
+    background-position: 0 -162px;
+}
+.subnav .subnav-icon7 {
+    background-position: 0 -196px;
+}
+.subnav .subnav-icon8 {
+    background-position: 0 -230px;
+}
+.subnav .subnav-icon9 {
+    background-position: 0 -258px;
+}
+.subnav .subnav-icon10 {
+    background-position: 0 -288px;
+}
+.sales {
+    overflow: hidden;
+    margin: 4px;
+    box-shadow: 1px 1px rgba(0, 0, 0, .2);
+    border-radius: 8px;
+    background-color: #fff;
+}
+.sales-hd {
+    position: relative;
+    height: 44px;
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+}
+.sales-hd h2 {
+    position: relative;
+    text-indent: -9999px;
+    overflow: hidden;
+}
+.sales-hd h2::after {
+    position: absolute;
+    top: 14px;
+    left: 8px;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background: url(../images/hot.png) 0 -20px no-repeat;
+    background-size: 79px auto;
+}
+.more {
+    position: absolute;
+    top: 11px;
+    right: 8px;
+    border-radius: 8px;
+    color: #fff;
+    padding: 2px 20px 2px 8px;
+    background: -webkit-linear-gradient(left, #ff4d64, #fd6ac7);
+}
+.more::after {
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    width: 7px;
+    height: 7px;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
+    transform: rotate(45deg);
+}
+.sales-bd .row {
+    display: flex;
+    /* eee比ccc淡的灰色 */
+    border-bottom: 1px solid #eee;
+}
+.sales-bd .row a {
+    flex:1;
+}
+.sales-bd img {
+    width: 100%;
+}
+.sales-bd .row a:nth-child(1) {
+    border-right: 1px solid #eee;
+}
+footer a, footer p {
+    color: #666;
+    font-size: 12px;
+    text-align: center;
+}
+/* 携程原版分割线做法 */
+/* footer a:first-child::after {
+    content: "";
+    margin-right: 24px;
+    padding-right: 24px;
+    background-position: 100%;
+    background-image: linear-gradient(
+90deg,transparent 50%,#ccc 0);
+    background-repeat: no-repeat;
+    background-size: 1px 100%;
+} */
+footer a:first-child {
+    border-right: 1px solid #ccc;
+    padding-right: 24px;
+    margin-right: 24px;
+}
+
+
