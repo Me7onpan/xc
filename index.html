@@ -6,10 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- 移动端视口标签很重要，禁止用户缩放 -->
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scal=1.0">
+        content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
     <title>携程网首页 - 携程在手 说走就走 -</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/index.css">
+    <script src="js/index.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script>
+        if ('addEventListener' in document) {
+            document.addEventListener('DOMContentLoaded', function () {
+                FastClick.attach(document.body);
+            }, false);
+        }
+    </script>
 </head>
 
 <body>
@@ -17,8 +26,19 @@
         <div class="search">搜索：目的地/酒店/景点/航班号</div>
         <a href="#" class="user">我 的</a>
     </section>
-    <section class="focus">
-        <img src="upload/focus.jpg" alt="">
+    <section class="focus clearfix">
+        <ul>
+            <li><img src="upload/focus3.jpg" alt=""></li>
+            <li><img src="upload/focus1.jpg" alt=""></li>
+            <li><img src="upload/focus2.jpg" alt=""></li>
+            <li><img src="upload/focus3.jpg" alt=""></li>
+            <li><img src="upload/focus1.jpg" alt=""></li>
+        </ul>
+        <ol>
+            <li class="current"></li>
+            <li></li>
+            <li></li>
+        </ol>
     </section>
     <ul class="local-nav">
         <li>
